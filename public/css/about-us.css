@@ -1,0 +1,144 @@
+/* About Us Page Styles */
+
+/* General Styles */
+.about-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-header h2 {
+    font-size: 32px;
+    color: #2b2d42;
+    margin-bottom: 15px;
+}
+
+.about-divider {
+    height: 3px;
+    width: 60px;
+    background-color: #d10024;
+    margin: 0 auto;
+}
+
+/* About Content Section */
+.about-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.about-img img {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.about-img:hover img {
+    transform: scale(1.05);
+}
+
+.about-content {
+    padding: 0 15px;
+}
+
+.about-content h3 {
+    color: #d10024;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Values Section */
+.values-section {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.value-box {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    height: 100%;
+    min-height: 250px;
+}
+
+.value-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.value-box i {
+    font-size: 40px;
+    color: #d10024;
+    margin-bottom: 20px;
+}
+
+.value-box h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #2b2d42;
+}
+
+.value-box p {
+    color: #8d99ae;
+    line-height: 1.6;
+}
+
+/* Team Section */
+.team-section {
+    margin-bottom: 60px;
+}
+
+.team-member {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.team-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.team-img img {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.team-img:hover img {
+    transform: scale(1.05);
+}
+
+.team-member h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #2b2d42;
+}
+
+.team-member p {
+    color: #d10024;
+    font-weight: 500;
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 767px) {
+    .about-content {
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .value-box {
+        min-height: auto;
+    }
+}

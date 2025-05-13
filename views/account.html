@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account - Trendora</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+  <!-- Font Awesome Icon -->
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+
+  <!-- Bootstrap -->
+  <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+  <!-- Custom stylesheet -->
+  <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+  <link type="text/css" rel="stylesheet" href="/css/enhanced-style.css"/>
+
+  <style>
+    .account-page {
+      padding: 30px 0;
+    }
+    .account-container {
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    .account-container h2 {
+      color: #333;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+    .account-tabs {
+      margin-bottom: 30px;
+    }
+    .account-tabs .nav-tabs {
+      border-bottom: 2px solid #ddd;
+    }
+    .account-tabs .nav-tabs > li > a {
+      border: none;
+      color: #555;
+      font-weight: 600;
+      padding: 10px 15px;
+    }
+    .account-tabs .nav-tabs > li.active > a {
+      border: none;
+      color: #D10024;
+      background: transparent;
+      border-bottom: 2px solid #D10024;
+    }
+    .account-tabs .nav-tabs > li > a:hover {
+      background: transparent;
+      border-color: transparent;
+    }
+    .tab-content {
+      padding: 20px 0;
+    }
+    .order-item {
+      border: 1px solid #eee;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+    .order-products {
+      margin-bottom: 10px;
+    }
+    .order-total {
+      font-weight: bold;
+      text-align: right;
+    }
+    .btn-logout {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- TOP HEADER -->
+  <div id="top-header">
+    <div class="container">
+      <ul class="header-links pull-left">
+        <li><a href="tel:03078621414"><i class="fa fa-phone"></i> 03078621414</a></li>
+        <li><a href="#"><i class="fa fa-envelope-o"></i> info@trendora.com</a></li>
+        <li><a href="#"><i class="fa fa-map-marker"></i> 123 Fashion Street, NY</a></li>
+      </ul>
+      <ul class="header-links pull-right">
+        <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+        <li><a href="/account" class="account-link"><i class="fa fa-user-o"></i> My Account</a></li>
+        <li><a href="#" id="logoutBtn" style="display: none;"><i class="fa fa-sign-out"></i> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- /TOP HEADER -->
+
+  <!-- MAIN HEADER -->
+  <div id="header">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+        <!-- LOGO -->
+        <div class="col-md-3">
+          <div class="header-logo">
+            <a href="/" class="logo">
+              <h1 style="color: white; margin: 0;">TRENDORA</h1>
+            </a>
+          </div>
+        </div>
+        <!-- /LOGO -->
+
+        <!-- SEARCH BAR -->
+        <div class="col-md-6">
+          <div class="header-search">
+            <form>
+              <select class="input-select">
+                <option value="0">All Categories</option>
+                <option value="1">Fashion</option>
+                <option value="2">Electronics</option>
+                <option value="3">Home & Living</option>
+                <option value="4">Beauty</option>
+              </select>
+              <input class="input" placeholder="Search here">
+              <button class="search-btn">Search</button>
+            </form>
+          </div>
+        </div>
+        <!-- /SEARCH BAR -->
+
+        <!-- ACCOUNT -->
+        <div class="col-md-3 clearfix">
+          <div class="header-ctn">
+            <!-- Wishlist -->
+            <div>
+              <a href="#">
+                <i class="fa fa-heart-o"></i>
+                <span>Your Wishlist</span>
+                <div class="qty">2</div>
+              </a>
+            </div>
+            <!-- /Wishlist -->
+
+            <!-- Cart -->
+            <div class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                <i class="fa fa-shopping-cart"></i>
+                <span>Your Cart</span>
+                <div class="qty cart-count">0</div>
+              </a>
+              <div class="cart-dropdown">
+                <div class="cart-list">
+                  <!-- Cart items will be dynamically added here -->
+                </div>
+                <div class="cart-summary">
+                  <small>0 Item(s) selected</small>
+                  <h5>SUBTOTAL: $0.00</h5>
+                </div>
+                <div class="cart-btns">
+                  <a href="/cart">View Cart</a>
+                  <a href="/checkout">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+            </div>
+            <!-- /Cart -->
+
+            <!-- Menu Toggle -->
+            <div class="menu-toggle">
+              <a href="#">
+                <i class="fa fa-bars"></i>
+                <span>Menu</span>
+              </a>
+            </div>
+            <!-- /Menu Toggle -->
+          </div>
+        </div>
+        <!-- /ACCOUNT -->
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </div>
+  <!-- /MAIN HEADER -->
+
+  <!-- NAVIGATION -->
+  <nav id="navigation">
+    <!-- container -->
+    <div class="container">
+      <!-- responsive-nav -->
+      <div id="responsive-nav">
+        <!-- NAV -->
+        <ul class="main-nav nav navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/store">Store</a></li>
+          <li><a href="/checkout">Checkout</a></li>
+          <li><a href="/contact-us">Contact Us</a></li>
+        </ul>
+        <!-- /NAV -->
+      </div>
+      <!-- /responsive-nav -->
+    </div>
+    <!-- /container -->
+  </nav>
+  <!-- /NAVIGATION -->
+
+  <!-- BREADCRUMB -->
+  <div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="breadcrumb-header">My Account</h3>
+          <ul class="breadcrumb-tree">
+            <li><a href="/">Home</a></li>
+            <li class="active">My Account</li>
+          </ul>
+        </div>
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /BREADCRUMB -->
+
+  <!-- SECTION -->
+  <div class="section account-page">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="account-tabs">
+            <ul class="nav nav-tabs">
+              <li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
+              <li><a data-toggle="tab" href="#orders">My Orders</a></li>
+              <li><a data-toggle="tab" href="#password">Change Password</a></li>
+            </ul>
+          </div>
+
+          <div class="tab-content">
+            <!-- Profile Tab -->
+            <div id="profile" class="tab-pane fade in active">
+              <div class="account-container">
+                <h2>My Profile</h2>
+                <form id="profileUpdateForm">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="userName">Full Name</label>
+                        <input type="text" id="userName" class="input" placeholder="Your Name" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="userEmail">Email Address</label>
+                        <input type="email" id="userEmail" class="input" placeholder="Your Email" required>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="userPhone">Phone Number</label>
+                        <input type="tel" id="userPhone" class="input" placeholder="Your Phone Number">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="userAddress">Address</label>
+                        <input type="text" id="userAddress" class="input" placeholder="Your Address">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="userCity">City</label>
+                        <input type="text" id="userCity" class="input" placeholder="Your City">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="userPostalCode">Postal Code</label>
+                        <input type="text" id="userPostalCode" class="input" placeholder="Your Postal Code">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="userCountry">Country</label>
+                        <input type="text" id="userCountry" class="input" placeholder="Your Country">
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" class="primary-btn">Update Profile</button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Orders Tab -->
+            <div id="orders" class="tab-pane fade">
+              <div class="account-container">
+                <h2>My Orders</h2>
+                <div id="ordersList">
+                  <!-- Orders will be loaded here -->
+                  <div class="order-item">
+                    <div class="order-header">
+                      <div>
+                        <strong>Order #:</strong> 12345
+                        <div><strong>Date:</strong> May 10, 2023</div>
+                      </div>
+                      <div>
+                        <span class="label label-success">Delivered</span>
+                      </div>
+                    </div>
+                    <div class="order-products">
+                      <div><strong>Products:</strong> Trendy Summer Dress (1), Wireless Headphones (2)</div>
+                    </div>
+                    <div class="order-total">
+                      <div>Total: $209.97</div>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <p>Loading your orders...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Password Tab -->
+            <div id="password" class="tab-pane fade">
+              <div class="account-container">
+                <h2>Change Password</h2>
+                <form id="passwordUpdateForm">
+                  <div class="form-group">
+                    <label for="currentPassword">Current Password</label>
+                    <input type="password" id="currentPassword" class="input" placeholder="Current Password" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" class="input" placeholder="New Password" required minlength="6">
+                  </div>
+                  <div class="form-group">
+                    <label for="confirmPassword">Confirm New Password</label>
+                    <input type="password" id="confirmPassword" class="input" placeholder="Confirm New Password" required minlength="6">
+                  </div>
+                  <button type="submit" class="primary-btn">Update Password</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <button id="logoutBtn" class="primary-btn btn-logout">Logout</button>
+          </div>
+        </div>
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /SECTION -->
+
+  <!-- NEWSLETTER -->
+  <div id="newsletter" class="section">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="newsletter">
+            <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+            <form id="newsletterForm">
+              <input class="input" type="email" id="newsletterEmail" placeholder="Enter Your Email" required>
+              <button class="newsletter-btn" type="submit"><i class="fa fa-envelope"></i> Subscribe</button>
+            </form>
+            <ul class="newsletter-follow">
+              <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="#" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /NEWSLETTER -->
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <!-- top footer -->
+    <div class="section">
+      <!-- container -->
+      <div class="container">
+        <!-- row -->
+        <div class="row">
+          <div class="col-md-3 col-xs-6">
+            <div class="footer">
+              <h3 class="footer-title">About Us</h3>
+              <p>Trendora is your one-stop destination for the latest fashion trends, electronics, home decor, and more. We bring you quality products at affordable prices.</p>
+              <ul class="footer-links">
+                <li><a href="#"><i class="fa fa-map-marker"></i>123 Fashion Street, NY</a></li>
+                <li><a href="tel:03078621414"><i class="fa fa-phone"></i>03078621414</a></li>
+                <li><a href="#"><i class="fa fa-envelope-o"></i>info@trendora.com</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-xs-6">
+            <div class="footer">
+              <h3 class="footer-title">Categories</h3>
+              <ul class="footer-links">
+                <li><a href="/store?category=hot-deals">Hot Deals</a></li>
+                <li><a href="/store?category=fashion">Fashion</a></li>
+                <li><a href="/store?category=electronics">Electronics</a></li>
+                <li><a href="/store?category=home-living">Home & Living</a></li>
+                <li><a href="/store?category=beauty">Beauty</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="clearfix visible-xs"></div>
+
+          <div class="col-md-3 col-xs-6">
+            <div class="footer">
+              <h3 class="footer-title">Information</h3>
+              <ul class="footer-links">
+                <li><a href="/contact-us">Contact Us</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Orders and Returns</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-xs-6">
+            <div class="footer">
+              <h3 class="footer-title">Service</h3>
+              <ul class="footer-links">
+                <li><a href="/account">My Account</a></li>
+                <li><a href="/cart">View Cart</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Track My Order</a></li>
+                <li><a href="/contact-us">Help</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- /row -->
+      </div>
+      <!-- /container -->
+    </div>
+    <!-- /top footer -->
+
+    <!-- bottom footer -->
+    <div id="bottom-footer" class="section">
+      <div class="container">
+        <!-- row -->
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <ul class="footer-payments">
+              <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+              <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+              <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+              <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+              <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+              <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+            </ul>
+            <span class="copyright">
+              Copyright © <script>document.write(new Date().getFullYear());</script> All rights reserved | Trendora - Where Trends Come Alive
+            </span>
+          </div>
+        </div>
+        <!-- /row -->
+      </div>
+      <!-- /container -->
+    </div>
+    <!-- /bottom footer -->
+  </footer>
+  <!-- /FOOTER -->
+
+  <!-- jQuery Plugins -->
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/slick.min.js"></script>
+  <script src="/js/nouislider.min.js"></script>
+  <script src="/js/jquery.zoom.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/newsletter.js"></script>
+  <script src="/js/cart.js"></script>
+
+  <script>
+    // Load orders when orders tab is clicked
+    $(document).ready(function() {
+      $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        if (e.target.href.includes('#orders')) {
+          loadOrders();
+        }
+      });
+    });
+
+    // Function to load user orders
+    async function loadOrders() {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          document.getElementById('ordersList').innerHTML = '<p>Please log in to view your orders.</p>';
+          return;
+        }
+
+        const response = await fetch('/api/orders/myorders', {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to load orders');
+        }
+
+        const orders = await response.json();
+
+        if (orders.length === 0) {
+          document.getElementById('ordersList').innerHTML = '<p>You have no orders yet.</p>';
+          return;
+        }
+
+        let ordersHtml = '';
+        orders.forEach(order => {
+          // Format date
+          const orderDate = new Date(order.createdAt).toLocaleDateString();
+
+          // Get status label class
+          let statusClass = 'label-default';
+          if (order.isDelivered) {
+            statusClass = 'label-success';
+          } else if (order.isPaid) {
+            statusClass = 'label-info';
+          } else {
+            statusClass = 'label-warning';
+          }
+
+          // Get status text
+          let statusText = 'Processing';
+          if (order.isDelivered) {
+            statusText = 'Delivered';
+          } else if (order.isPaid) {
+            statusText = 'Paid';
+          }
+
+          // Format products
+          let productsText = '';
+          order.orderItems.forEach(item => {
+            productsText += `${item.name} (${item.quantity}), `;
+          });
+          productsText = productsText.slice(0, -2); // Remove last comma and space
+
+          ordersHtml += `
+            <div class="order-item">
+              <div class="order-header">
+                <div>
+                  <strong>Order #:</strong> ${order._id}
+                  <div><strong>Date:</strong> ${orderDate}</div>
+                </div>
+                <div>
+                  <span class="label ${statusClass}">${statusText}</span>
+                </div>
+              </div>
+              <div class="order-products">
+                <div><strong>Products:</strong> ${productsText}</div>
+              </div>
+              <div class="order-total">
+                <div>Total: $${order.totalPrice.toFixed(2)}</div>
+              </div>
+            </div>
+          `;
+        });
+
+        document.getElementById('ordersList').innerHTML = ordersHtml;
+      } catch (error) {
+        console.error('Error loading orders:', error);
+        document.getElementById('ordersList').innerHTML = '<p>Error loading orders. Please try again later.</p>';
+      }
+    }
+  </script>
+</body>
+</html>
