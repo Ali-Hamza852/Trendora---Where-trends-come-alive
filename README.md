@@ -4,6 +4,8 @@
 ![Express.js](https://img.shields.io/badge/Express.js-4.x-lightgrey?logo=express&style=for-the-badge)  
 ![MongoDB](https://img.shields.io/badge/MongoDB-6.x-brightgreen?logo=mongodb&style=for-the-badge)  
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)  
+![Contributions](https://img.shields.io/badge/Contributions-Welcome-blue?style=for-the-badge)  
+![Pull Requests](https://img.shields.io/badge/Pull%20Requests-Welcome-blueviolet?style=for-the-badge)  
 
 ---
 
